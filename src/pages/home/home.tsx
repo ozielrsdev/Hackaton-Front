@@ -1,4 +1,5 @@
 import { CategoryCard } from './components/categoryCard'
+import { AccommodationsContent } from './components/accommodationsContent'
 
 export function Home() {
   return (
@@ -47,7 +48,8 @@ export function Home() {
           Flat ou Apartamento
         </CategoryCard>
       </section>
-      <section className="bg-zinc-700 bg-bannerImg bg-cover bg-center flex items-center rounded-xl text-6xl justify-center h-64 w-full max-w-7xl"></section>
+      <AccommodationsContent />
+      {/* <section className="bg-zinc-700 bg-bannerImg bg-cover bg-center flex items-center rounded-xl text-6xl justify-center h-64 w-full max-w-7xl"></section> */}
     </main>
   )
 }

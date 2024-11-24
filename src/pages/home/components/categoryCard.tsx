@@ -16,7 +16,7 @@ export function CategoryCard({
   return (
     <div className="w-full h-full flex items-center flex-col">
       <div
-        className={`w-32 h-32 ${bgImage} relative gap-6 flex-col bg-cover bg-center flex items-center justify-center`}
+        className={`w-32 h-32 ${bgImage} rounded-lg relative gap-6 flex-col bg-cover bg-center flex items-center justify-center`}
       >
         <p className="text-xl text-wrap text-center font-bold leading-none text-primary drop-shadow-shadow-thin">
           {children}

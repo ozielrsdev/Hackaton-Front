@@ -8,6 +8,7 @@
 * {
   -webkit-font-smoothing: antialiased;
   font-family: Roboto, monospace;
+  box-sizing: border-box;
 }
 
 html{
