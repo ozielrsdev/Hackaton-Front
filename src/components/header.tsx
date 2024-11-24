@@ -3,7 +3,7 @@ import logo from '../assets/logo.svg'
 
 export function Header() {
   return (
-    <header className="flex w-full bg-primary-variant">
+    <header className="flex flex-shrink-0 w-full bg-primary-variant">
       <div className="flex items-center w-full justify-center gap-10 md:max-w-7xl mx-auto py-4 px-6">
         <img src={logo} alt="Logo" className="h-10" />
 
