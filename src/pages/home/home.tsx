@@ -3,8 +3,8 @@ import { AccommodationsContent } from './components/accommodationsContent'
 
 export function Home() {
   return (
-    <main className="w-full flex-grow flex flex-col gap-9 items-center justify-center">
-      <section className="border pt-7 px-12 border-secondary rounded-xl h-60 w-full max-w-7xl flex items-center justify-center">
+    <main className="w-full flex-grow flex flex-col gap-9 pt-7 items-center justify-center px-9 sm:px-8 lg:px-12">
+      <section className="hidden border pt-7 pb-7 px-12 border-secondary rounded-xl h-auto w-full max-w-7xl sm:grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-4 items-center justify-items-center">
         <CategoryCard
           tooltipTitle="Hotel"
           tooltipContent="Hospedagem confortável com serviços como recepção, café da manhã e lazer, ideal para lazer ou negócios."
@@ -46,6 +46,17 @@ export function Home() {
           bgImage="bg-flatImg"
         >
           Flat ou Apartamento
+        </CategoryCard>
+      </section>
+      <section className="bg-zinc-700 bg-bannerImg  bg-cover bg-center flex items-center rounded-xl text-2xl sm:text-4xl lg:text-6xl justify-center h-48 sm:h-56 lg:h-64 w-full max-w-7xl px-4 sm:px-8 lg:px-12">
+        <CategoryCard
+          tooltipTitle="Venha conosco!"
+          tooltipContent="Conheça os melhores lugares para você se hospedar."
+          bgImage="" 
+        >
+          <p className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-secondary-500 font-bold whitespace-nowrap">
+            Comece sua viagem aqui!
+          </p>
         </CategoryCard>
       </section>
       <AccommodationsContent />
