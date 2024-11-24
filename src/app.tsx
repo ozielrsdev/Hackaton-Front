@@ -1,3 +1,9 @@
+import { BrowserRouter } from 'react-router'
+import { Router } from './routes'
 export function App() {
-  return <div>Home</div>
+  return (
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  )
 }
