@@ -49,15 +49,9 @@ export function Home() {
         </CategoryCard>
       </section>
       <section className="bg-zinc-700 bg-bannerImg  bg-cover bg-center flex items-center rounded-xl text-2xl sm:text-4xl lg:text-6xl justify-center h-48 sm:h-56 lg:h-64 w-full max-w-7xl px-4 sm:px-8 lg:px-12">
-        <CategoryCard
-          tooltipTitle="Venha conosco!"
-          tooltipContent="Conheça os melhores lugares para você se hospedar."
-          bgImage=""
-        >
-          <p className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-secondary-500 font-bold whitespace-nowrap">
-            Comece sua viagem aqui!
-          </p>
-        </CategoryCard>
+        <p className="text-xl text-primary drop-shadow-shadow-thin sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-secondary-500 font-bold whitespace-nowrap">
+          Comece sua viagem aqui!
+        </p>
       </section>
       <AccommodationsContent />
       {/* <section className="bg-zinc-700 bg-bannerImg bg-cover bg-center flex items-center rounded-xl text-6xl justify-center h-64 w-full max-w-7xl"></section> */}
