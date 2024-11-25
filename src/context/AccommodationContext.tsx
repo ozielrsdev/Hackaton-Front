@@ -39,7 +39,7 @@ export function AccommodationProvider({
       try {
         const url = filter
           ? `https://hackaton-onfly.onrender.com/accommodations/?category=${filter}`
-          : 'https://hackaton-onfly.onrender.com/accommodations/accommodations/'
+          : 'https://hackaton-onfly.onrender.com/accommodations'
 
         const response = await axios.get<Accommodation[]>(url)
         if (filter !== '') {
