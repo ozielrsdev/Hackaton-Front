@@ -38,8 +38,8 @@ export function AccommodationProvider({
     const getAccommodations = async () => {
       try {
         const url = filter
-          ? `http://localhost:3333/accommodations/search/?category=${filter}`
-          : 'http://localhost:3333/accommodations/'
+          ? `https://hackaton-onfly.onrender.com/accommodations/?category=${filter}`
+          : 'https://hackaton-onfly.onrender.com/accommodations/accommodations/'
 
         const response = await axios.get<Accommodation[]>(url)
         if (filter !== '') {
