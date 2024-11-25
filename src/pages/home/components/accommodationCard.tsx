@@ -1,4 +1,3 @@
-import { useAccommodation } from '../contexts/AccommodationContext'
 import hotelImg from '../../../assets/hotel2.jpg'
 import { Modal } from './modal'
 import { useState } from 'react'

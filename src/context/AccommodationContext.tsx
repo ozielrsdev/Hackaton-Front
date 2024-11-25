@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 
-interface Accommodation {
+export interface Accommodation {
   id: number
   name: string
   image: string
