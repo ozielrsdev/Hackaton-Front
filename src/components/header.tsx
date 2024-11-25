@@ -1,7 +1,9 @@
 import { IoMdSearch } from 'react-icons/io'
 import logo from '../assets/logo.svg'
+import { useAccommodation } from '../context/AccommodationContext'
 
 export function Header() {
+  const { filter, setFilter } = useAccommodation()
   return (
     <header className="flex w-full justify-center items-center min-h-16 bg-primary-variant">
       <div className="flex items-center w-full justify-center max-w-7xl gap-4 sm:gap-5 md:gap-6 lg:gap-10 mx-auto py-3 sm:py-4 px-4 sm:px-5">
@@ -28,24 +30,26 @@ export function Header() {
             />
             <IoMdSearch className="text-secondary" size={20} />
           </div>
-          <div className="flex justify-center items-center relative sm:hidden gap-2">
+          <div className="flex justify-center items-center relative sm:gap-2">
             <label htmlFor="accommodations" className="font-semibold text-xs">
               Filtrar
             </label>
             <select
               name="accommodations"
               id="accommodations"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
               className="bg-slate-50 border transition duration-300 ease focus:border-zinc-300 hover:border-zinc-400 shadow-sm focus:shadow-md pl-3 pr-8 py-2 border-slate-200 placeholder:text-slate-400 appearance-none h-10 rounded w-[85px] font-bold text-xs outline-none row-start-1 col-start-1"
             >
               <option className="" defaultValue={''} value="">
                 Nenhum
               </option>
-              <option value="Hotel">Hotel</option>
-              <option value="Hostel">Hostel</option>
-              <option value="Pousada">Pousada</option>
-              <option value="Flat ou apartamento">Flat/Apartamento</option>
-              <option value="Hotel fazenda">Hotel fazenda</option>
-              <option value="Resort">Resort</option>
+              <option value="HOTEL">Hotel</option>
+              <option value="HOSTEL">Hostel</option>
+              <option value="INN">Pousada</option>
+              <option value="APARTMENT">Flat/Apartamento</option>
+              <option value="VILLA">Hotel fazenda</option>
+              <option value="RESORT">Resort</option>
             </select>
             <svg
               xmlns="http://www.w3.org/2000/svg"

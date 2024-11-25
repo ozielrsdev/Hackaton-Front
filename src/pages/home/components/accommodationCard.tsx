@@ -1,60 +1,42 @@
-import { useState } from 'react'
+import { useAccommodation } from '../contexts/AccommodationContext'
 import hotelImg from '../../../assets/hotel2.jpg'
 import { Modal } from './modal'
+import { useState } from 'react'
 
-export function AccommodationCard() {
+export function AccommodationCard({ accommodation }) {
+  const { name, city, state, description, stars, image, benefits } =
+    accommodation
   const [isOpen, setIsOpen] = useState(false)
-
   const handleOpen = () => setIsOpen(true)
   const handleClose = () => setIsOpen(false)
 
-  const lodgingData = {
-    title: 'Nome da Hospedaria',
-    lodgingName: 'Hospedaria Exemplo',
-    city: 'Recife',
-    state: 'Pernambuco',
-    rating: 9,
-    stars: 4,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pariatur, odio beatae velit minus, quam dolor maiores natus sit impedit quibusdam culpa rem consectetur ea illo animi et! Sed, autem iste.',
-    amenities: [
-      'WiFi Gratis',
-      'Estacionamento',
-      'Café da Manhã',
-      'Café da Manhã',
-    ],
-    imageUrl: hotelImg,
-  }
-
   return (
-    <div className="md:flex grid lg:grid lg:grid-flow-col md:grid-cols-2 grid-cols-1 gap-7 rounded-3xl  items-center border h-auto p-6 border-secondary">
+    <div className="md:flex grid lg:grid lg:grid-flow-col md:grid-cols-2 grid-cols-1 gap-7 rounded-3xl items-center border h-auto p-6 border-secondary">
       <img
-        src={hotelImg}
+        src={image || hotelImg}
         className="w-48 lg:w-60 md:w-48 rounded-lg h-48 lg:h-60 object-cover mx-auto"
-        alt="Hotel"
+        alt={city}
       />
       <div className="flex w-full h-full flex-col text-center md:text-left">
         <h1 className="font-bold text-secondary text-2xl md:text-2xl lg:text-4xl">
-          Hotel
+          {name}
         </h1>
         <div className="flex justify-center md:justify-start gap-6 my-2">
           <p className="text-black text-sm md:text-base lg:text-lg font-normal border-b-2 border-secondary">
-            Recife
+            {city}
           </p>
           <p className="text-black text-sm md:text-base lg:text-lg font-normal border-b-2 border-secondary">
-            Pernambuco
+            {state}
           </p>
         </div>
-        <article className="font-normal text-sm md:text-base lg:text-lg mt-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-          odio beatae velit minus, quam dolor maiores natus sit impedit
-          quibusdam culpa rem consectetur ea illo animi et! Sed, autem iste.
+        <article className="font-normal text-ellipsis text-sm md:text-base  lg:text-lg mt-3">
+          {description || 'Descrição não disponível.'}
         </article>
       </div>
       <div className="flex md:justify-between flex-col lg:grid h-auto md:h-[200px] items-center gap-4 md:gap-4">
         <div className="bg-secondary transform rotate-45 flex items-center justify-center w-10 h-10 md:w-10 md:h-10 lg:w-14 lg:h-14">
           <h1 className="transform -rotate-45 text-white font-bold text-xl md:text-2xl">
-            9.2
+            {stars}
           </h1>
         </div>
         <button
@@ -67,15 +49,13 @@ export function AccommodationCard() {
       <Modal
         open={isOpen}
         onClose={handleClose}
-        title={lodgingData.title}
-        lodgingName={lodgingData.lodgingName}
-        city={lodgingData.city}
-        state={lodgingData.state}
-        stars={lodgingData.stars}
-        rating={lodgingData.rating}
-        description={lodgingData.description}
-        amenities={lodgingData.amenities}
-        imageUrl={lodgingData.imageUrl}
+        lodgingName={name}
+        city={city}
+        state={state}
+        stars={stars || 0}
+        description={description || 'Sem descrição disponível.'}
+        amenities={Array.isArray(benefits) ? benefits.map((b) => b.label) : []}
+        imageUrl={image || hotelImg}
       />
     </div>
   )

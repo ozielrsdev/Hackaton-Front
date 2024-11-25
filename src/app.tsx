@@ -1,9 +1,13 @@
 import { BrowserRouter } from 'react-router'
 import { Router } from './routes'
+import { AccommodationProvider } from './context/AccommodationContext'
+
 export function App() {
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    <AccommodationProvider>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </AccommodationProvider>
   )
 }

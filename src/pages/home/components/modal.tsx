@@ -3,11 +3,9 @@ import React from 'react'
 interface ModalProps {
   open: boolean
   onClose: () => void
-  title: string
   lodgingName: string
   city: string
   state: string
-  rating: number
   description: string
   amenities: string[]
   stars: number
@@ -30,24 +28,15 @@ const iconMap: { [key: string]: string[] } = {
 export const Modal: React.FC<ModalProps> = ({
   open,
   onClose,
-  title,
   lodgingName,
   city,
   state,
-  rating,
   stars,
   description,
   amenities,
   imageUrl,
 }) => {
   if (!open) return null
-
-  const getStars = (stars: number) => {
-    const fullStars = Math.floor(stars)
-    const halfStar = stars % 1 >= 1 ? '⭐️' : ''
-    return '⭐️'.repeat(fullStars) + halfStar
-  }
-
   const [showAllAmenities, setShowAllAmenities] = React.useState(false)
   const displayedAmenities = showAllAmenities
     ? amenities
@@ -61,7 +50,6 @@ export const Modal: React.FC<ModalProps> = ({
         return `/icons/${icon}.png`
       }
     }
-
     return '/icons/default.png'
   }
 
@@ -83,8 +71,9 @@ export const Modal: React.FC<ModalProps> = ({
             </h3>
           </div>
           <div className="flex flex-col items-center gap-1 mt-4 md:justify-center text-center">
-            <p className="text-2xl font-bold text-blue-500">{rating.toFixed(1)}</p>
-            <div className="text-yellow-500 text-lg">{getStars(stars)}</div>
+            <p className="text-2xl font-bold text-blue-500">
+              {stars.toFixed(1)}
+            </p>
           </div>
         </div>
         <div className="flex flex-col md:flex-row gap-6">
