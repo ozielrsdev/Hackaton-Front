@@ -52,7 +52,7 @@ export function Home() {
         <CategoryCard
           tooltipTitle="Venha conosco!"
           tooltipContent="Conheça os melhores lugares para você se hospedar."
-          bgImage="" 
+          bgImage=""
         >
           <p className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-secondary-500 font-bold whitespace-nowrap">
             Comece sua viagem aqui!
