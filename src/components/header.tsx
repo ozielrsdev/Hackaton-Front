@@ -4,7 +4,8 @@ import { useAccommodation } from '../context/AccommodationContext'
 import { useState } from 'react'
 
 export function Header() {
-  const { filter, setFilter, setSearchTerm } = useAccommodation()
+  const { filter, setFilter, setSearchTerm, accommodationData } =
+    useAccommodation()
   const [inputValue, setInputValue] = useState('')
 
   const handleSearch = () => {
@@ -31,7 +32,7 @@ export function Header() {
             Resultados
           </p>
           <span className="flex w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 justify-center font-medium items-center bg-secondary text-white rounded-full">
-            7
+            {accommodationData ? accommodationData.length : 0}
           </span>
         </div>
 

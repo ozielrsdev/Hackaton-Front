@@ -1,3 +1,4 @@
+import { Footer } from '../components/footer'
 import { Header } from '../components/header'
 import { Outlet } from 'react-router'
 export function DefaultLayout() {
@@ -5,6 +6,7 @@ export function DefaultLayout() {
     <div className="flex flex-col h-screen">
       <Header />
       <Outlet />
+      <Footer />
     </div>
   )
 }

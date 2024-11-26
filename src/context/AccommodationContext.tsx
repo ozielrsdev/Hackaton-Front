@@ -32,7 +32,9 @@ export function AccommodationProvider({
 }: {
   children: React.ReactNode
 }) {
-  const [accommodationData, setAccommodationData] = useState<Accommodation[]>([])
+  const [accommodationData, setAccommodationData] = useState<Accommodation[]>(
+    [],
+  )
   const [filter, setFilter] = useState<string>('')
   const [searchTerm, setSearchTerm] = useState<string>('')
 
