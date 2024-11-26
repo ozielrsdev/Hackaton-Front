@@ -7,7 +7,6 @@ export function Header() {
   const { filter, setFilter, setSearchTerm, accommodationData } =
     useAccommodation()
   const [inputValue, setInputValue] = useState('')
-
   const handleSearch = () => {
     setSearchTerm(inputValue.trim())
     setFilter('')
