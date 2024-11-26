@@ -5,6 +5,7 @@ import { useState } from 'react'
 export function AccommodationCard({ accommodation }) {
   const { name, city, state, description, stars, thumb, amenities } =
     accommodation
+    console.log(accommodation)
   const [isOpen, setIsOpen] = useState(false)
   const handleOpen = () => setIsOpen(true)
   const handleClose = () => setIsOpen(false)

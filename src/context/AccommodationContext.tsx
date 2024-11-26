@@ -1,3 +1,5 @@
+// AccommodationContext.tsx
+
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -17,6 +19,8 @@ interface AccommodationContextType {
   setAccommodationData: React.Dispatch<React.SetStateAction<Accommodation[]>>
   filter: string
   setFilter: React.Dispatch<React.SetStateAction<string>>
+  searchTerm: string
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>
 }
 
 const AccommodationContext = createContext<
@@ -28,34 +32,47 @@ export function AccommodationProvider({
 }: {
   children: React.ReactNode
 }) {
-  const [accommodationData, setAccommodationData] = useState<Accommodation[]>(
-    [],
-  )
+  const [accommodationData, setAccommodationData] = useState<Accommodation[]>([])
   const [filter, setFilter] = useState<string>('')
+  const [searchTerm, setSearchTerm] = useState<string>('')
 
   useEffect(() => {
     const getAccommodations = async () => {
       try {
-        const url = filter
-          ? `https://hackaton-onfly.onrender.com/accommodations/search?category=${filter}`
-          : 'https://hackaton-onfly.onrender.com/accommodations/'
+        let url = 'https://hackaton-onfly.onrender.com/accommodations/'
+
+        if (searchTerm) {
+          const cepRegex = /^\d{5}-\d{3}$/
+          if (cepRegex.test(searchTerm)) {
+            url = `https://hackaton-onfly.onrender.com/accommodations/search-by-zip?CEP=${searchTerm}`
+          } else {
+            url = `https://hackaton-onfly.onrender.com/accommodations/search?name=${searchTerm}`
+          }
+        } else if (filter) {
+          url = `https://hackaton-onfly.onrender.com/accommodations/search?category=${filter}`
+        }
 
         const response = await axios.get<Accommodation[]>(url)
-        if (filter !== '') {
-          console.log(response.data)
-        }
         setAccommodationData(response.data)
+        console.log('Dados recebidos:', response.data)
       } catch (error) {
         console.error('Erro ao buscar acomodações:', error)
       }
     }
 
     getAccommodations()
-  }, [filter])
+  }, [filter, searchTerm])
 
   return (
     <AccommodationContext.Provider
-      value={{ accommodationData, setAccommodationData, filter, setFilter }}
+      value={{
+        accommodationData,
+        setAccommodationData,
+        filter,
+        setFilter,
+        searchTerm,
+        setSearchTerm,
+      }}
     >
       {children}
     </AccommodationContext.Provider>
