@@ -3,7 +3,7 @@ import logo from '../assets/logo.svg'
 import { useAccommodation } from '../context/AccommodationContext'
 
 export function Header() {
-  const { filter, setFilter } = useAccommodation()
+  const { filter, setFilter, accommodationData } = useAccommodation()
   return (
     <header className="flex w-full justify-center items-center min-h-16 bg-primary-variant">
       <div className="flex items-center w-full justify-center max-w-7xl gap-4 sm:gap-5 md:gap-6 lg:gap-10 mx-auto py-3 sm:py-4 px-4 sm:px-5">
@@ -17,7 +17,7 @@ export function Header() {
             Resultados
           </p>
           <span className="flex w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 justify-center font-medium items-center bg-secondary text-white rounded-full">
-            7
+            {accommodationData ? accommodationData.length : 0}
           </span>
         </div>
 
