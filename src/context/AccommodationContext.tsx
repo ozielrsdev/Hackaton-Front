@@ -4,13 +4,12 @@ import axios from 'axios'
 export interface Accommodation {
   id: number
   name: string
-  image: string
+  thumb: string
   city: string
   state: string
   rating: number
   description: string
-  benefits: { key: string; label: string }[]
-  imageUrl: string
+  amenities: { key: string; label: string }[]
 }
 
 interface AccommodationContextType {
@@ -38,8 +37,8 @@ export function AccommodationProvider({
     const getAccommodations = async () => {
       try {
         const url = filter
-          ? `https://hackaton-onfly.onrender.com/accommodations/?category=${filter}`
-          : 'https://hackaton-onfly.onrender.com/accommodations'
+          ? `https://hackaton-onfly.onrender.com/accommodations/search?category=${filter}`
+          : 'https://hackaton-onfly.onrender.com/accommodations/'
 
         const response = await axios.get<Accommodation[]>(url)
         if (filter !== '') {

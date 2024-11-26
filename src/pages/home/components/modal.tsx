@@ -9,7 +9,7 @@ interface ModalProps {
   description: string
   amenities: string[]
   stars: number
-  imageUrl: string
+  thumb: string
 }
 
 const iconMap: { [key: string]: string[] } = {
@@ -34,7 +34,7 @@ export const Modal: React.FC<ModalProps> = ({
   stars,
   description,
   amenities,
-  imageUrl,
+  thumb,
 }) => {
   if (!open) return null
   const [showAllAmenities, setShowAllAmenities] = React.useState(false)
@@ -52,7 +52,6 @@ export const Modal: React.FC<ModalProps> = ({
     }
     return '/icons/default.png'
   }
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-white w-full max-w-5xl mx-5 p-6 md:p-10 rounded-lg shadow-lg relative overflow-y-auto h-auto md:h-auto lg:h-auto max-h-screen">
@@ -79,7 +78,7 @@ export const Modal: React.FC<ModalProps> = ({
         <div className="flex flex-col md:flex-row gap-6">
           <div className="w-full md:w-2/3">
             <img
-              src={imageUrl}
+              src={thumb}
               alt={lodgingName}
               className="w-full h-60 md:h-80 object-cover rounded-lg"
             />

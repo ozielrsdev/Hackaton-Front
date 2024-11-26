@@ -3,7 +3,7 @@ import { Modal } from './modal'
 import { useState } from 'react'
 
 export function AccommodationCard({ accommodation }) {
-  const { name, city, state, description, stars, image, benefits } =
+  const { name, city, state, description, stars, thumb, amenities } =
     accommodation
   const [isOpen, setIsOpen] = useState(false)
   const handleOpen = () => setIsOpen(true)
@@ -12,7 +12,7 @@ export function AccommodationCard({ accommodation }) {
   return (
     <div className="md:flex grid lg:grid lg:grid-flow-col md:grid-cols-2 grid-cols-1 gap-7 rounded-3xl items-center border h-auto p-6 border-secondary">
       <img
-        src={image || hotelImg}
+        src={thumb || hotelImg}
         className="w-48 lg:w-60 md:w-48 rounded-lg h-48 lg:h-60 object-cover mx-auto"
         alt={city}
       />
@@ -53,8 +53,10 @@ export function AccommodationCard({ accommodation }) {
         state={state}
         stars={stars || 0}
         description={description || 'Sem descrição disponível.'}
-        amenities={Array.isArray(benefits) ? benefits.map((b) => b.label) : []}
-        imageUrl={image || hotelImg}
+        amenities={
+          Array.isArray(amenities) ? amenities.map((b) => b.label) : []
+        }
+        thumb={thumb || hotelImg}
       />
     </div>
   )
