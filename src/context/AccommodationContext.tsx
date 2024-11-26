@@ -46,12 +46,12 @@ export function AccommodationProvider({
         if (searchTerm) {
           const cepRegex = /^\d{5}-\d{3}$/
           if (cepRegex.test(searchTerm)) {
-            url = `https://hackaton-onfly.onrender.com/accommodations/search-by-zip?CEP=${searchTerm}`
+            url = `https://hackaton-onfly.onrender.com/accommodations/search-by-cep?cep=${searchTerm}`
           } else {
             url = `https://hackaton-onfly.onrender.com/accommodations/search?name=${searchTerm}`
           }
         } else if (filter) {
-          url = `https://hackaton-onfly.onrender.com/accommodations/search?category=${filter}`
+          url = `https://hackaton-onfly.onrender.com/accommodations/search-by-category?category=${filter}`
         }
 
         const response = await axios.get<Accommodation[]>(url)

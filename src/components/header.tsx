@@ -6,7 +6,9 @@ import { useState } from 'react'
 export function Header() {
   const { filter, setFilter, setSearchTerm, accommodationData } =
     useAccommodation()
+
   const [inputValue, setInputValue] = useState('')
+
   const handleSearch = () => {
     setSearchTerm(inputValue.trim())
     setFilter('')
@@ -36,14 +38,13 @@ export function Header() {
         </div>
 
         <div className="flex sm:flex-row sm:gap-4 md:gap-5 lg:gap-6 w-full items-center justify-center gap-3">
-          <div className="border border-zinc-400 transition duration-300 ease focus-within:border-secondary w-full sm:w-[16rem] md:w-[24rem] lg:w-[37.5rem] h-8 sm:h-9 md:h-10 lg:h-12 rounded-lg flex items-center justify-center px-2 sm:px-3 md:px-4 bg-white">
+          <div className="border border-zinc-400 transition duration-300 ease  focus-within:border-secondary w-full sm:w-[16rem] md:w-[24rem] lg:w-[37.5rem] h-8 sm:h-9 md:h-10 lg:h-12 rounded-lg flex items-center justify-center px-2 sm:px-3 md:px-4 bg-white">
             <input
               type="text"
-              placeholder="Busque por nome ou CEP"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              onKeyUp={handleKeyPress}
+              placeholder="Busque por ou CEP"
               className="flex-1 bg-transparent outline-none text-xs sm:text-sm md:text-base lg:text-lg border-none"
+              onKeyUp={handleKeyPress}
+              onChange={(e) => setInputValue(e.target.value)}
             />
             <IoMdSearch className="text-secondary" size={20} />
           </div>
@@ -55,13 +56,12 @@ export function Header() {
               name="accommodations"
               id="accommodations"
               value={filter}
-              onChange={(e) => {
-                setFilter(e.target.value)
-                setSearchTerm('')
-              }}
+              onChange={(e) => setFilter(e.target.value)}
               className="bg-slate-50 border transition duration-300 ease focus:border-zinc-300 hover:border-zinc-400 shadow-sm focus:shadow-md pl-3 pr-8 py-2 border-slate-200 placeholder:text-slate-400 appearance-none h-10 rounded w-[85px] font-bold text-xs outline-none row-start-1 col-start-1"
             >
-              <option value="">Nenhum</option>
+              <option className="" defaultValue={''} value="">
+                Nenhum
+              </option>
               <option value="HOTEL">Hotel</option>
               <option value="HOSTEL">Hostel</option>
               <option value="INN">Pousada</option>
@@ -86,7 +86,7 @@ export function Header() {
           </div>
           <button
             onClick={handleSearch}
-            className="md:flex items-center justify-center bg-secondary-variant w-full md:w-20 lg:w-32 hidden sm:w-auto text-xs sm:text-sm lg:text-xl font-bold text-white px-2 sm:px-3 md:px-4 lg:px-5 py-[0.3rem] sm:py-1 md:py-[0.6rem] lg:py-2 rounded-3xl hover:bg-secondary-dark transition mt-3 sm:mt-0"
+            className="md:flex items-center justify-center bg-secondary-variant md:w-20 lg:w-32 w-auto  sm:w-auto text-xs sm:text-sm lg:text-xl font-bold text-white px-2 sm:px-3 md:px-4 lg:px-5 py-[0.3rem] sm:py-1 md:py-[0.6rem] lg:py-2 rounded-3xl hover:bg-secondary-dark transition sm:mt-0"
           >
             Pesquisar
           </button>
