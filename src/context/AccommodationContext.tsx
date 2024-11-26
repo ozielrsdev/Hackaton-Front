@@ -49,7 +49,7 @@ export function AccommodationProvider({
             url = `https://hackaton-onfly.onrender.com/accommodations/search?name=${searchTerm}`
           }
         } else if (filter) {
-          url = `https://hackaton-onfly.onrender.com/accommodations/search?category=${filter}`
+          url = `https://hackaton-onfly.onrender.com/accommodations/search-by-category?category=${filter}`
         }
 
         const response = await axios.get<Accommodation[]>(url)
