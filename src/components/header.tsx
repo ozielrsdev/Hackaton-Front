@@ -11,6 +11,7 @@ export function Header() {
 
   const handleSearch = () => {
     setSearchTerm(inputValue.trim())
+    setInputValue('')
     setFilter('')
   }
 
@@ -41,6 +42,7 @@ export function Header() {
           <div className="border border-zinc-400 transition duration-300 ease  focus-within:border-secondary w-full sm:w-[16rem] md:w-[24rem] lg:w-[37.5rem] h-8 sm:h-9 md:h-10 lg:h-12 rounded-lg flex items-center justify-center px-2 sm:px-3 md:px-4 bg-white">
             <input
               type="text"
+              value={inputValue}
               placeholder="Busque por ou CEP"
               className="flex-1 bg-transparent outline-none text-xs sm:text-sm md:text-base lg:text-lg border-none"
               onKeyUp={handleKeyPress}
@@ -56,7 +58,10 @@ export function Header() {
               name="accommodations"
               id="accommodations"
               value={filter}
-              onChange={(e) => setFilter(e.target.value)}
+              onChange={(e) => {
+                setFilter(e.target.value)
+                setSearchTerm('')
+              }}
               className="bg-slate-50 border transition duration-300 ease focus:border-zinc-300 hover:border-zinc-400 shadow-sm focus:shadow-md pl-3 pr-8 py-2 border-slate-200 placeholder:text-slate-400 appearance-none h-10 rounded w-[85px] font-bold text-xs outline-none row-start-1 col-start-1"
             >
               <option className="" defaultValue={''} value="">
