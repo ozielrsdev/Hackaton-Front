@@ -22,8 +22,8 @@ export function Header() {
   }
 
   return (
-    <header className="flex w-full justify-center items-center min-h-16 bg-primary-variant">
-      <div className="flex items-center w-full justify-center max-w-7xl gap-4 sm:gap-5 md:gap-6 lg:gap-10 mx-auto py-3 sm:py-4 px-4 sm:px-5">
+    <header className="flex w-full px-4 justify-center items-center sm:min-h-16 bg-primary-variant">
+      <div className="flex items-center w-full justify-center max-w-7xl sm:gap-5 md:gap-6 lg:gap-10 mx-auto sm:px-5">
         <img
           src={logo}
           alt="Logo"
@@ -38,7 +38,7 @@ export function Header() {
           </span>
         </div>
 
-        <div className="flex sm:flex-row sm:gap-4 md:gap-5 lg:gap-6 w-full items-center justify-center gap-3">
+        <div className="flex flex-col py-2 sm:flex-row sm:gap-4 md:gap-5 lg:gap-6 w-full items-center justify-center gap-1">
           <div className="border border-zinc-400 transition duration-300 ease  focus-within:border-secondary w-full sm:w-[16rem] md:w-[24rem] lg:w-[37.5rem] h-8 sm:h-9 md:h-10 lg:h-12 rounded-lg flex items-center justify-center px-2 sm:px-3 md:px-4 bg-white">
             <input
               type="text"
@@ -50,7 +50,7 @@ export function Header() {
             />
             <IoMdSearch className="text-secondary" size={20} />
           </div>
-          <div className="flex justify-center items-center relative sm:gap-2">
+          <div className="flex justify-center items-center relative gap-2">
             <label htmlFor="accommodations" className="font-semibold text-xs">
               Filtrar
             </label>
@@ -62,7 +62,7 @@ export function Header() {
                 setFilter(e.target.value)
                 setSearchTerm('')
               }}
-              className="bg-slate-50 border transition duration-300 ease focus:border-zinc-300 hover:border-zinc-400 shadow-sm focus:shadow-md pl-3 pr-8 py-2 border-slate-200 placeholder:text-slate-400 appearance-none h-10 rounded w-[85px] font-bold text-xs outline-none row-start-1 col-start-1"
+              className="bg-slate-50 border  transition duration-300 ease text-ellipsis focus:border-zinc-300 hover:border-zinc-400 shadow-sm focus:shadow-md pl-3 pr-8 py-2 border-slate-200 placeholder:text-slate-400 appearance-none h-10 rounded w-[85px] font-bold text-xs outline-none row-start-1 col-start-1"
             >
               <option className="" defaultValue={''} value="">
                 Nenhum
