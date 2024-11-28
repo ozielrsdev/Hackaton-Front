@@ -43,7 +43,7 @@ export function Header() {
             <input
               type="text"
               value={inputValue}
-              placeholder="Busque por ou CEP"
+              placeholder="Busque por CEP"
               className="flex-1 bg-transparent outline-none text-xs sm:text-sm md:text-base lg:text-lg border-none"
               onKeyUp={handleKeyPress}
               onChange={(e) => setInputValue(e.target.value)}
